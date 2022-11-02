@@ -16,6 +16,6 @@ public class App
         daos.createDaoTable();
         daos.saveDao("Mont", 1L,17);
         System.out.println(daos.getById(1L));
-
+        daos.clearById(1L);
     }
 }
