@@ -54,17 +54,20 @@ public class DaoServiceJDBC implements DaoService {
         try (Connection connection = dbc.getConnection();
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(query3)) {
+
             while (resultSet.next()) {
                 User user = new User();
                 user.setId(resultSet.getLong("id"));
                 user.setName(resultSet.getString("name"));
                 user.setAge(resultSet.getInt("age"));
+                return user;
             }
             System.out.println("Через айдишник получен");
         }catch (SQLException e){
             System.out.println("Через айдишник не получен");
         }
-return null;    }
+        return null;
+   }
 
     @Override
     public void clearById(Long id) throws SQLException {
